@@ -1,9 +1,10 @@
-FROM gitpod/workspace-full-vnc:branch-jx-python-tk
-RUN add-apt-repository ppa:maarten-fonville/android-studio && \
-    apt-get update && \
-    apt-get install android-sdk \
-        lib32stdc++6 \
-        android-studio \
-        android-sdk-platform-23 --no-install-recommends --yes \
-        && apt-get clean \
-        && rm -rf /var/lib/apt/lists/*
+FROM gitpod/workspace-full-vnc
+
+ENV ANDROID_HOME=/home/gitpod/android-sdk-linux \
+    FLUTTER_HOME=/home/gitpod/flutter \
+    PATH=/usr/lib/dart/bin:$FLUTTER_HOME/bin:$ANDROID_HOME/tools:$PATH
+
+USER gitpod
+
+RUN cd /home/gitpod && wget -qO IntelliJ_IDEA.tar.xz https://download.jetbrains.com/idea/ideaIC-2019.2.4.tar.gz \
+    && tar -xvf IntelliJ_IDEA.tar.xz && rm IntelliJ_IDEA.tar.xz;

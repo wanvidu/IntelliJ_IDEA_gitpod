@@ -6,5 +6,5 @@ ENV ANDROID_HOME=/home/gitpod/android-sdk-linux \
 
 USER gitpod
 
-RUN cd /home/gitpod && wget -qO IntelliJ_IDEA.tar.xz https://download.jetbrains.com/idea/ideaIC-2019.2.4.tar.gz \
-    && tar -xvf IntelliJ_IDEA.tar.xz -C /opt && rm IntelliJ_IDEA.tar.xz;
+RUN cd /home/gitpod && wget -qO ideaIU.tar.gz https://download.jetbrains.com/idea/ideaIC-2019.2.4.tar.gz \
+    && tar -xzf ideaIU.tar.gz -C /opt && rm ideaIU.tar.gz;
